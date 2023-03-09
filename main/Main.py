@@ -20,4 +20,13 @@ from sklearn.inspection import DecisionBoundaryDisplay
 
 
 if __name__ == '__main__':
-    print("This is the template for the project work")
+    print("User must enter the time zone they are in, for ")
+    print("default please press enter without hitting a key")
+    print("The user must enter a string in the following format:")
+    #print("     mm/dd/yyyy hh:mm")
+    timestring = input("     mm/dd/yyyy hh:mm")
+    mon = timestring[0:2]
+    day = timestring[3:3]
+    year = timestring[6:10]
+    hour = timestring[11:13]
+    min = timestring[14:16]
