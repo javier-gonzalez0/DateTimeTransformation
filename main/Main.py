@@ -106,7 +106,7 @@ if __name__ == '__main__':
     newdate = currentdate + timedelta(hours=hour_delta)
 
     print("\n\nThe old date & time:", currentdate.strftime("%m/%d/%Y %H:%M"))
-    print("The new date & time:", newdate.strftime("%m/%d/%Y %H:%M"))
+    print("The new date & time:", newdate.strftime("%m/%d/%Y %A %H:%M"))
     print("Time delta:", hour_delta, "hours")
     
 
