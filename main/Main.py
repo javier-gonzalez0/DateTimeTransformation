@@ -4,6 +4,7 @@
 #   CS 5103                     #
 #################################
 from datetime import datetime, timedelta
+import re #used for Day of the week filter
 
 if __name__ == '__main__':
 
@@ -46,19 +47,27 @@ if __name__ == '__main__':
     while(ValidDate == False):
 
         print("\n\nPlease enter date & time in the following format:")
-        print("     mm/dd/yyyy hh:mm  ")
+        print("     mm/dd/yyyy <day of the Week> hh:mm  ")
         timestring = input("     mm/dd/yyyy hh:mm")
         print("User Input: ", timestring)
         input_mon = int(timestring[0:2])
         input_day = int(timestring[3:5])
         input_year = int(timestring[6:10])
-        input_hour = int(timestring[11:13])
-        input_min = int(timestring[14:16])
+        #input_DoW = (timestring[11:21])
+        input_DoW=re.sub("[^A-Za-z]","",timestring[11:21]).capitalize()
+        input_hour = int(timestring[-5:-3]) #Change to make code more robust
+        input_min = int(timestring[-2:])    #Change to make code more robust
 
         try:
             currentdate = datetime(year=input_year,month=input_mon,day=input_day,
                                             hour=input_hour,minute=input_min)
+            
             ValidDate = True
+
+            if input_DoW != currentdate.strftime("%A"):
+                ValidDate = False
+                print("In valid Week of the day input, please try again")
+
         except ValueError:
             ValidDate = False
             print("Time Format error please try again")
