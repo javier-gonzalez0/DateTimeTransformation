@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
         print("\n\nPlease enter date & time in the following format:")
         print("     mm/dd/yyyy <day of the Week> hh:mm  ")
-        timestring = input("     mm/dd/yyyy hh:mm")
+        timestring = input("     mm/dd/yyyy <day of the Week> hh:mm")
         print("User Input: ", timestring)
         input_mon = int(timestring[0:2])
         input_day = int(timestring[3:5])
