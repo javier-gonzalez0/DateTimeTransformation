@@ -53,8 +53,8 @@ if __name__ == '__main__':
         input_mon = int(timestring[0:2])
         input_day = int(timestring[3:5])
         input_year = int(timestring[6:10])
-        #input_DoW = (timestring[11:21])
-        input_DoW=re.sub("[^A-Za-z]","",timestring[11:21]).capitalize()
+        #Day of the Week (DoW)
+        input_DoW = re.sub("[^A-Za-z]","",timestring[11:21]).capitalize()
         input_hour = int(timestring[-5:-3]) #Change to make code more robust
         input_min = int(timestring[-2:])    #Change to make code more robust
 
@@ -114,7 +114,7 @@ if __name__ == '__main__':
     hour_delta = TimeZones[TZIndex_current][3] + TimeZones[TZIndexChange][3]
     newdate = currentdate + timedelta(hours=hour_delta)
 
-    print("\n\nThe old date & time:", currentdate.strftime("%m/%d/%Y %H:%M"))
+    print("\n\nThe old date & time:", currentdate.strftime("%m/%d/%Y %A %H:%M"))
     print("The new date & time:", newdate.strftime("%m/%d/%Y %A %H:%M"))
     print("Time delta:", hour_delta, "hours")
     
