@@ -3,7 +3,8 @@
 #   UTSA ECE                    #
 #   CS 5103                     #
 #################################
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, tzinfo
+from zoneinfo import ZoneInfo
 import re #used for Day of the week filter
 
 if __name__ == '__main__':
@@ -60,7 +61,7 @@ if __name__ == '__main__':
 
         try:
             currentdate = datetime(year=input_year,month=input_mon,day=input_day,
-                                            hour=input_hour,minute=input_min)
+                                            hour=input_hour,minute=input_min, fold=1)
             
             ValidDate = True
 
@@ -110,9 +111,9 @@ if __name__ == '__main__':
             ValidTimeZone = False
 
 
-
+    #if 
     hour_delta = TimeZones[TZIndex_current][3] + TimeZones[TZIndexChange][3]
-    newdate = currentdate + timedelta(hours=hour_delta)
+    newdate = currentdate + timedelta(hours=hour_delta)# - tzinfo.dst(datetime)
 
     print("\n\nThe old date & time:", currentdate.strftime("%m/%d/%Y %A %H:%M"))
     print("The new date & time:", newdate.strftime("%m/%d/%Y %A %H:%M"))
